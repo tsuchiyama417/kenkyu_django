@@ -1,0 +1,33 @@
+body {
+    /* 背景色指定 */
+    background-color:#FFFFFF;
+}
+
+h1 {
+    margin: 15px;
+    display: inline-block;
+    /*線の種類（実線） 太さ 色*/
+    border-bottom: solid 3px rgb(0, 0, 0);
+}
+
+h2 {
+    margin: 20px;
+    display: inline-block;
+    color: rgb(59, 59, 59);/*文字色*/
+    /*線の種類（点線）2px 線色*/
+    border-bottom: dashed 2px rgb(59, 59, 59);
+}
+
+.select {
+    margin: auto;
+    width: 1000px;
+}
+
+.graph {
+    margin: auto;
+    width: 1000px;
+}
+
+table {
+    margin: 20px;
+}

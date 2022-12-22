@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>トップページ</title>
+    <!--Plotly-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!--js-->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</head>
+
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">graph</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'base' %}">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'detail' %}">detail</a>
+                </li>
+            </div>
+            </div>
+        </nav>
+</header>
+
+<body>
+    <div class="select">
+        <h2>生物種</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.select.label }}
+            {% for radio in form.select %}
+                {{ radio.tag }}
+                <label for="id_select_{{ radio.index }}">{{ radio.choice_label }}</label>
+            {% endfor %}
+        <button type="submit" name="btn_apply">適用</button>
+    </div>
+    <br>
+    <div class="graph">
+        {% autoescape off %}
+        {{chart}}
+        {% endautoescape %}
+    </div>
+</form>
+
+</body>
+</html>

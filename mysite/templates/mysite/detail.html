@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="utf-8">
+    <title>トップページ</title>
+    <!--Plotly-->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <!--CSS-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <!--js-->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</head>
+
+<header>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">graph</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{% url 'base' %}">home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'detail' %}">detail</a>
+                </li>
+            </div>
+            </div>
+        </nav>
+</header>
+
+<body>
+    <h1>研究概要</h1><br>
+    <h2>研究目標</h2>
+    <ul>
+        <li>アミノ酸に三次元ベクトルを割り当て、グラフィカル表現を行う</li>
+        <li>精度を高めるためにアミノ酸のベクトルの割り当て方を検討する</li>
+        <li>各三次元座標群の距離行列を計算し、遺伝子解析同等の系統樹を早く作成する</li>
+    </ul>
+    <h2>本ページの指標・配置</h2>
+    <ul>
+        <li>指標：アミノ酸の疎水性度</li>
+        <li>配置：アミノ酸の疎水性度の値が小さい順に二重円</li>
+    </ul>
+    <h2>アミノ酸のベクトル</h2>
+    <table class="table table-striped" style="width:10px;">
+        <thead class="table-secondary">
+            <tr>
+                <th scope="col">amino_acid</th>
+                <th scope="col">x</th>
+                <th scope="col">y</th>
+                <th scope="col">z</th>
+            </tr>
+        </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Alanine</th>
+                    <td>2.060</td>
+                    <td>-0.669</td>
+                    <td>1.083</td>
+                </tr>
+                <tr>
+                    <th scope="row">Cysteine</th>
+                    <td>0.000</td>
+                    <td>-3.708</td>
+                    <td>1.859</td>
+                </tr>
+                <tr>
+                    <th scope="row">Aspartic acid</th>
+                    <td>1.201</td>
+                    <td>-0.390</td>
+                    <td>1.263</td>
+                </tr>
+                <tr>
+                    <th scope="row">Glutamic acid</th>
+                    <td>-0.689</td>
+                    <td>-0.948</td>
+                    <td>1.172</td>
+                </tr>
+                <tr>
+                    <th scope="row">Phenylalanine</th>
+                    <td>-1.662</td>
+                    <td>-2.286</td>
+                    <td>1.413</td>
+                </tr>
+                <tr>
+                    <th scope="row">Glysine</th>
+                    <td>0.000</td>
+                    <td>2.300</td>
+                    <td>1.150</td>
+                </tr>
+                <tr>
+                    <th scope="row">Histidine</th>
+                    <td>0.000</td>
+                    <td>-1.643</td>
+                    <td>1.643</td>
+                    <tr>
+                        <th scope="row">Isoleusine</th>
+                        <td>-1.444</td>
+                        <td>1.987</td>
+                        <td>1.228</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Lysine</th>
+                        <td>0.727</td>
+                        <td>1.000</td>
+                        <td>1.236</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Leucine</th>
+                        <td>-1.930</td>
+                        <td>-0.627</td>
+                        <td>1.015</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Methionine</th>
+                        <td>1.902</td>
+                        <td>-2.616</td>
+                        <td>1.617</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Asparagine</th>
+                        <td>0.818</td>
+                        <td>-1.125</td>
+                        <td>1.391</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Proline</th>
+                        <td>-1.259</td>
+                        <td>-0.409</td>
+                        <td>1.324</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Glutamine</th>
+                        <td>1.336</td>
+                        <td>0.434</td>
+                        <td>1.405</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Arginine</th>
+                        <td>0.000</td>
+                        <td>1.257</td>
+                        <td>1.257</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Serine</th>
+                        <td>1.385</td>
+                        <td>1.906</td>
+                        <td>1.178</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Threonine</th>
+                        <td>-0.747</td>
+                        <td>1.028</td>
+                        <td>1.271</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Valine</th>
+                        <td>-2.212</td>
+                        <td>0.719</td>
+                        <td>1.163</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tryptophan</th>
+                        <td>3.726</td>
+                        <td>1.211</td>
+                        <td>1.959</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Tyrosine</th>
+                        <td>-1.460</td>
+                        <td>0.474</td>
+                        <td>1.535</td>
+                    </tr>
+                </tr>
+            </tbody>
+    </table>
+
+    
+</body>
+</html>
